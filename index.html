@@ -1,90 +1,277 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Developer-autodesk.GitHub.io : The entry point of Autodesk web services">
+<head>
+	<meta charset="utf-8">
+	<meta content="chrome=1" http-equiv="X-UA-Compatible">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="Developer-autodesk.GitHub.io : The entry point of Autodesk web services" name="description">
+	<link href="stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css">
+	<!--bootstrap-->
+	<link href="stylesheets/bootstrap.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
-    <!--bootstrap-->
-    <link rel="stylesheet" href="stylesheets/bootstrap.css">
+	<!-- icons-->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- icons-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
 
-    <title>Developer-autodesk.GitHub.io</title>
-  </head>
+	<link href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet">
+	<title>Developer-autodesk.GitHub.io</title>
+	<style type="text/css">
+.auto-style1 {
+	font-size: 16px;
+	letter-spacing: normal;
+	background-color: #F2F2F2;
+}
+</style>
+</head>
 
-  <body>
+<body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/Developer-Autodesk">View on GitHub</a>
+	<!-- HEADER -->
+	<div id="header_wrap" class="outer">
+		<header class="inner">
+			<a id="forkme_banner" href="https://github.com/Developer-Autodesk">
+				View 
+		on GitHub
+			</a>
+			<h1 id="project_title">Autodesk Developer</h1>
+			<h2 id="project_tagline">View and Data API</h2>
+		</header>
+	</div>
+	<!-- MAIN CONTENT -->
+	<div id="main_content_wrap" class="outer">
+		<section id="main_content" class="inner">
+			<h3>Welcome to Autodesk View and Data API developer center</h3>
+			<p>
+				The View and Data API is a web service that lets you display your 3D 
+		content on your website.
+				<a href="http://developer.api.autodesk.com/documentation/v1/vs/vs_quick_start.html#vs-api-quick-start">quick start guide</a>
+				to help you started.
+			</p>
+			<h3>Play with it live</h3>
+			<div id="tabs">
+				<ul>
+					<li>
+						<a href="#tabs-1">Manufactor sample</a>
+					</li>
+					<li>
+						<a href="#tabs-2">AEC Sample</a>
+					</li>
+				</ul>
+				<div id="tabs-1">
+					<iframe allowfullscreen="" frameborder="0" height="480" mozallowfullscreen="" src="http://viewer.autodesk.io/node/gallery/embed/54464d47af600b5c0a872553" webkitallowfullscreen="" width="100%"></iframe>
+				</div>
+				<div id="tabs-2">
+					<iframe allowfullscreen="" frameborder="0" height="480" mozallowfullscreen="" src="http://viewer.autodesk.io/node/gallery/embed/544e4dfbcd656a2c0c385fe7" webkitallowfullscreen="" width="100%"></iframe>
+				</div>
+			</div>
 
-          <h1 id="project_title">Autodesk Developer</h1>
-          <h2 id="project_tagline">View and Data API</h2>
+			<h3>Getting Started</h3>
 
-        </header>
-    </div>
+			<p>
+				To access the view and Data API, you need to register an App on
+				<a href="http://developer.autodesk.com">http://developer.autodesk.com</a>
+				to get your consumer key and secret key.
+				<a href="http://developer.autodesk.com">Register now!</a>
+				<!-- <img alt="Register an App and Get consumer key"  src="images/get-consumer-key.PNG">--></p>
+			<!-- samples -->
+			<h3>Play and learn</h3>
+			<div class="row">
+				<div class="col-md-6">
+					<p>
+						<a href="https://fast-shelf-9177.herokuapp.com/">
+							quickstart online workflow sample
+						</a>
+					</p>
+				</div>
+				<div class="col-md-6">
+					<p>
+						<a href="http://lmvdbg.iab.app42paas.com/">Client API live sample</a>
+						<p></div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<p>
+								<a href="https://fast-shelf-9177.herokuapp.com/">
+									<img class="img-responsive img-rounded" alt="quickstart online"  src="images/sample-screenshot-quickstart.PNG" ></p>
+							</a>
+						</p>
 
-        <h3>Getting Started</h3>
+					</div>
+					<div class="col-md-6">
+						<a href="http://lmvdbg.iab.app42paas.com/">
+							<img class="img-responsive img-rounded" alt="client api samples"  src="images/sample-screenshot-lmbdbg.PNG"></p>
+					</div>
+				</a>
+			</div>
 
-        <p>The View and Data API is a web service that lets you display your 3D content on your website. <br> Here is a <a href="http://developer.api.autodesk.com/documentation/v1/vs/vs_quick_start.html#vs-api-quick-start">quick start guide</a> to help you started.</p>
+			<h3>&nbsp;</h3>
+			<h3>Check out these code samples:</h3>
+			<p>
+				These samples demonostrate the workflow of view and data API. To display 
+		your models/drawings in your website, you need to upload your models/drawings 
+		and get them translated with REST API, and then embed the viewer into your 
+		webiste with JavaScript API.
+			</p>
+			<div class="row">
+				<div class="col-sm-6">
+					<p align="center">.NET Sample</p>
+				</div>
+				<div class="col-sm-6">
+					<p align="center">JavaScript Sample</p>
+				</div>
+				<!-- <div class="col-sm-4">
+				<p align="center">Java Sample</p>
+			</div>
+			-->
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<p align="center">
+					<a href="http://checkoutmymodel.autodesk.io/">
+						<img  class="img-responsive img-rounded" alt="Screen-shot of asp.net workflow sample" src="images/sample-screenshot-aspnet-checkoutmymodel.PNG"></a>
+				</p>
+			</div>
+			<div class="col-sm-6">
+				<p align="center">
+					<a href="http://viewer.autodesk.io/node/gallery/#/gallery">
+						<img class="img-responsive img-rounded" alt="model gallery sample in Javascript " height="539" src="images/sample-screenshot-javascript-gallery.PNG" width="890"></a>
+				</p>
+			</div>
+			<!-- <div class="col-sm-4">
+			<p align="center">
+				<a href="#">
+					<img  class="img-responsive img-rounded" alt="workflow sample in Java" height="539" src="images/sample-screenshot-java.PNG" width="890"></a>
+			</p>
+		</div>
+		-->
+	</div>
+	<!-- end of samples -->
+	<!-- libraries -->
+	<h3>Libraries</h3>
+	<p>
+		Here are some libaries which make your work easly. Your are welcomce 
+		to
+	</p>
+	<ul>
+		<li>
+			<a href="https://github.com/Developer-Autodesk/library-javascript-viewer-extensions">library-javascript-viewer-extensions</a>
+			<br>
+			A collection of various 
+			JavaScript extensions for the viewer
+		</li>
+		<li>
+			<a href="https://github.com/Developer-Autodesk/library-javascript-view.and.data.api">library-javascript-view.and.data.api</a>
+			<br>
+			This is a JavaScript library 
+			providing a high level wrapper for the Autodesk View &amp; Data Rest 
+			API calls
+		</li>
+		<li>
+			<a href="https://github.com/Developer-Autodesk/library-dotnet-view.and.data.api">library-dotnet-view.and.data.api</a>
+			<br>
+			Autodesk View And Data Rest 
+			API Wrapper Library for .Net Applications and ASP.Net websites
+		</li>
+	</ul>
+	<h3>Other samples</h3>
+	<p>
+		Here are some other samples, demonstrating the integration with other 
+		systems, such as your own ERP/CRM system, exteneral Database, etc.
+	</p>
+	<ul>
+		<li>
+			<a href="https://github.com/Developer-Autodesk/integration-sap-view.and.data.api">integration-sap-view.and.data.api</a>
+		</li>
+		<li>
+			<p>
+				An ASP.Net MVC website sample that integrates the Autodesk View and 
+			Data API with an SAP database using the
+				<span class="Apple-converted-space">&nbsp;</span>
+				<a href="http://scn.sap.com/docs/DOC-47563">
+					SAP 
+			Gateway for Microsoft (GWM)
+				</a>
+				<span class="Apple-converted-space">&nbsp;</span>
+				technology.
+			</p>
+		</li>
+		<li>
+			<a href="https://github.com/Developer-Autodesk/integration-bing-maps-view.and.data.api">integration-bing-maps-view.and.data.api</a>
+		</li>
+		<li>
+			<p>
+				This is a sample demoing the integration with Microsoft Bing Maps and 
+			Autodesk View and Data API.
+			</p>
+		</li>
+		<li>
+			<a href="https://github.com/Developer-Autodesk/integration-sharepoint-view.and.data.api">integration-sharepoint-view.and.data.api</a>
+		</li>
+		<li>
+			<span>
+				This repo contains files that show how you can upload files 
+			and view them inside SharePoint using the Autodesk viewer.
+			</span>
+		</li>
+	</ul>
+	<h3>Contact and Support</h3>
+	<p>
+		<span>
+			Having trouble with this API? Checkout out Blogs or log a thread on forums:
+		</span>
+	</p>
+	<ul>
+		<li>
+			<a href="http://developer.api.autodesk.com/documentation/v1/index.html">Documentation</a>
+		</li>
+		<li>
+			<span class="auto-style1">
+				<a href="http://adndevblog.typepad.com/cloud_and_mobile/">
+					ADN DevBlogs 
+			Cloud and Mobile edtiion
+				</a>
+			</span>
+		</li>
+		<li>
+			<a href="http://forums.autodesk.com/t5/view-and-data-api/bd-p/95">
+				View 
+			and Data API Forum
+			</a>
+		</li>
+	</ul>
+	<!-- end of libraries -->
+</section>
+</div>
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+<footer class="inner">
+	<p>@Autodesk 2015</p>
+</footer>
+</div>
 
-        <!-- samples -->
-        <h3>Check out these code samples:</h3>
-        <div class="row">
-          <div class="col-sm-4">
-            <p align="center">.NET Sample</p>
-          </div>
-          <div class="col-sm-4">
-            <p align="center">JavaScript Sample</p>
-          </div>
-          <div class="col-sm-4">
-            <p align="center">Java Sample</p>
-          </div>
-          <div class="col-sm-4">
-            <p align="center"></p>
-          </div>
-          <div class="col-sm-4">
-            <p align="center"></p>
-          </div>
-          <div class="col-sm-4">
-            <p align="center"></p>
-          </div>
-        </div>
-        <!-- end of samples -->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
-        <!-- libraries -->
-        <h3>Libraries</h3>
-        <div class="row">
-          <div class="col-sm-6">
-            <p align="center">JavaScript Library</p>
-          </div>
-          <div class="col-sm-6">
-            <p align="center">.NET Library</p>
-          </div>
-        </div>
-        <!-- end of libraries -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-      </section>
-    </div>
+<script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Autodesk 2015</p>
-      </footer>
-    </div>
+</body>
 
-    
-
-  </body>
 </html>
