@@ -1,4 +1,3 @@
-@import url("//fonts.googleapis.com/css?family=Lato:400,700,400italic");
 /*!
  * bootswatch v3.3.1+2
  * Homepage: http://bootswatch.com
@@ -265,6 +264,12 @@ th {
     border: 1px solid #ddd !important;
   }
 }
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato/Lato-Regular.ttf');
+}
+
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../fonts/glyphicons-halflings-regular.eot');
