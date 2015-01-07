@@ -19,7 +19,9 @@ aside,
 details,
 figcaption,
 figure,
-footer,
+footer {
+    padding-top: 50px;
+}
 header,
 hgroup,
 main,
