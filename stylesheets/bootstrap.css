@@ -948,6 +948,11 @@ img {
   max-width: 100%;
   height: auto;
 }
+.img-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .img-rounded {
   border-radius: 6px;
 }
