@@ -15,6 +15,8 @@
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <!--owl carousel-->
+        <link rel="stylesheet" href="css/owl.carousel.css">
 		<![endif]-->
 		<link href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet">
 		<link href="css/ionicons.css" rel="stylesheet">
@@ -54,7 +56,7 @@
 					<div class="page-header content-header app-content-header api-detail-header view-and-data-api" id="title">
 						<div class="container app-container">
 							<div class="col-xs-12 col-sm-6 col-md-9 col-lg-9 app-title-container">
-								<h1 id="view-and-data-title">View & Data API</h1>
+								<h1 id="view-and-data-title">View and Data API Beta</h1>
 							</div>
 							<!--<p>Embedding vibrant 3D graphics in a Web Browser, 
 								Support for almost 100 formats, 
@@ -82,6 +84,7 @@
 										<div class="col-lg-12">
 											<ul class="nav nav-pills nav-stacked app-sidenav">
 												<li role="presentation" class="active"><a href="#what-does-it-do" class="first-child">What Does it Do</a></li>
+                                                <li role="presentation"><a href="#vr-experience" class="first-child">VR Experience</a></li>
 												<li role="presentation"><a href="#live-demo" class="first-child">Play With it Live</a></li>
 												<li role="presentation"><a href="#play-with-api" class="first-child">Play With APIs</a></li>
 												<li role="presentation"><a href="#live-sample" class="first-child">Live Sample</a></li>
@@ -106,7 +109,8 @@
 										<div class="col-lg-12">
 											<ul class="nav nav-pills nav-stacked app-sidenav">
 												<li role="presentation" class="active"><a href="#what-does-it-do" class="first-child" data-toggle="collapse" data-target=".navbar-responsive-collapse">What Does it Do</a></li>
-												<li role="presentation"><a href="#live-demo" data-toggle="collapse" data-target=".navbar-responsive-collapse">Play With it Live</a></li>
+												<li role="presentation"><a href="#vr-experience" data-toggle="collapse" data-target=".navbar-responsive-collapse">VR Experience</a></li>
+                                                <li role="presentation"><a href="#live-demo" data-toggle="collapse" data-target=".navbar-responsive-collapse">Play With it Live</a></li>
 												<li role="presentation"><a href="#play-with-api" data-toggle="collapse" data-target=".navbar-responsive-collapse">Play With APIs</a></li>
 												<li role="presentation"><a href="#live-sample" data-toggle="collapse" data-target=".navbar-responsive-collapse">Live Sample</a></li>
 												<li role="presentation"><a href="#template-project" data-toggle="collapse" data-target=".navbar-responsive-collapse">Quick Start Projects</a></li>
@@ -126,10 +130,28 @@
 									<div class="panel-body app-panel-body app-api-doc">
                                         <div class="app-api-section">
                                             <div id="what-does-it-do" class="app-api-section-heading">
-                                                <h2 class="app-api-section-title first-child">What exactly does the View and Data API do?</h2>
+                                                <h2 class="app-api-section-title first-child">What exactly does the View and Data API Beta do?</h2>
                                             </div>
-                                            <p>The View and Data API enables web developers to very easily display 3D (and 2D) models in a WebGL-enabled browser or smartphone app. If you've got a model you've created using some kind of design software, then you can probably display it using this API.</p>
+                                            <p>The View and Data API Beta enables web developers to very easily display 3D (and 2D) models in a WebGL-enabled browser or smartphone app. If you've got a model you've created using some kind of design software, then you can probably display it using this API.</p>
                                         </div>
+                                        
+                                        <div class="app-api-section" id="vr-experience">
+                                            <div id="what-does-it-do" class="app-api-section-heading">
+                                                <h2 class="app-api-section-title first-child">VR Experience</h2>
+                                            </div>
+                                                <div class="owl-carousel">
+                                                    <div class="owl-vr"><a href="http://vr.autodesk.io/"><img src="images/vr/house.png"></a></div>
+                                                    <div class="owl-vr"><a href="http://autode.sk/gcbv"><img src="images/vr/morgan.png"></a></div>
+                                                    <div class="owl-vr"><a href="http://autode.sk/gcbv"><img src="images/vr/flyer-one.png"></a></div>
+                                                    <div class="owl-vr"><a href="http://autode.sk/gcbv"><img src="images/vr/boat.png"></a></div>
+                                                    <div class="owl-vr"><a href="http://autode.sk/gcbv"><img src="images/vr/differential.png"></a></div>
+                                                    <div class="owl-vr"><a href="http://aupano.autodesk.com/panogl.html?url=panos/int"><img src="images/vr/angelapoovey.png"></a></div>
+                                                    <div class="owl-vr"><a href="http://aupano.autodesk.com/panogl.html?url=panos/water1"><img src="images/vr/emmauelurbina.png"></a></div>
+                                                    <div class="owl-vr"><a href="http://aupano.autodesk.com/turn.html?url=rccar2"><img src="images/vr/car-interactive.png"></a></div>
+                                                    <div class="owl-vr"><a href="http://aupano.autodesk.com/turn.html?url=watch2"><img src="images/vr/watch-turnable.png"></a></div>
+                                                </div>
+                                        </div>
+                                        
                                         <!-- start live demo -->
                                         <div class="app-api-section">
                                             <div id="Overview" class="app-api-section-heading">
@@ -280,7 +302,7 @@
                                                                 <i class="fa fa-book fa-2x pull-left"></i>
                                                                 JavaScript Library
                                                                 <br>
-                                                                This is a high level JavaScript wrapper library for the Autodesk View &amp; Data Rest API calls.
+                                                                This is a high level JavaScript wrapper library for the Autodesk View and Data Rest API calls.
                                                                 </a>
                                                                 <a href="https://github.com/Developer-Autodesk/library-javascript-viewer-extensions" 
                                                                     class="list-group-item">
@@ -469,6 +491,8 @@
         <!-- END FOOTER -->
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <!--owl carousel-->
+        <script src="js/owl.carousel.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 		<script>
@@ -476,5 +500,20 @@
 			    $("#tabs").tabs();
 			});
 		</script>
+        <script>
+            $(function () {
+                $("#tabs").tabs();
+            });
+            $(document).ready(function(){
+                $('.owl-carousel').owlCarousel({
+                    autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+                    items : 4,
+                    itemsDesktop : [1199,3],
+                    itemsDesktopSmall : [979,3]
+                });
+            });
+        </script>
+        
 	</body>
 </html>
