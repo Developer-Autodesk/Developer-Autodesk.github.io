@@ -30,7 +30,7 @@
         <link rel="shortcut icon" href="favicon.ico">
 	</head>
 	<body data-spy="scroll" data-target="#nav-parent" class="fuelux">
-<!--   NAVBAR     -->
+        <!--   NAVBAR     -->
 		<div class="bs-docs-section clearfix" id="navbar">
 			<div class="row">
 				<div class="col-lg-12">
@@ -49,7 +49,7 @@
 				</div>
 			</div>
 		</div>
-<!--    END NAVBAR    -->
+        <!--    END NAVBAR    -->
 		<!-- HEADER -->
 		<div class="clearfix">
 			<div class="row">
@@ -131,6 +131,7 @@
                                                 <h2 class="app-api-section-title first-child">What exactly does the View and Data API Beta do?</h2>
                                             </div>
                                             <p>The View and Data API Beta enables web developers to very easily display 3D (and 2D) models in a WebGL-enabled browser or smartphone app. If you've got a model you've created using some kind of design software, then you can probably display it using this API.</p>
+                                            <div id="dropAreaContainer" style="width: 280px"></div>
                                         </div>
                                         
                                         <div class="app-api-section" id="vr-experience">
@@ -179,16 +180,13 @@
 
                                         </div>
 
-                                        <!-- end play with api -->
+                                        <!-- end live demo -->
+                                        
                                         <!-- start play with api -->
                                             <div class="app-api-section">
                                                 <div id="play-with-api" class="app-api-section-heading">
                                                     <h2 class="app-api-section-title first-child">Play with the APIs</h2>
                                                 </div>
-                                                <p>
-                                                    Pretty exciting, right? Eager to learn some APIs and get it running on your own website?
-                                                    Here are some live samples you can play with to understand the workflow and the client APIs.
-                                                </p>
                                                 <p>The API comes in two parts -</p>
                                                 <ul>
                                                     <li><strong>A (server-side) REST API</strong> that allows you to translate any of over 70 file formats into a common (JSON) file format. The data extracted from the original file is the geometry of every element in the model and the metadata that was attached to each of those model elements.</li>
@@ -512,74 +510,80 @@
 		</div>
         <!-- END FOOTER -->
 		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <!--owl carousel-->
-    <script src="js/owl.carousel.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <!--owl carousel-->
+        <script src="js/owl.carousel.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="http://www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
+        <script src="http://www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
+        <script src="js/widget.js"></script>
 
-    <script>
+        <script>
 			$(function () {
 			    $("#tabs").tabs();
 			});
 		</script>
 
-    <script>
-        $(function () {
-            $("#tabs").tabs();
-        });
-        $(document).ready(function(){
-            $('.owl-carousel').owlCarousel({
-                autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-                items : 4,
-                itemsDesktop : [1199,3],
-                itemsDesktopSmall : [979,3]
+        <script>
+            $(function () {
+                $("#tabs").tabs();
             });
+            $(document).ready(function(){
+                $('.owl-carousel').owlCarousel({
+                    autoPlay: 3000, //Set AutoPlay to 3 seconds
 
-            // Adam added it
-            $('[data-clampedwidth]').each(function () {
-                var elem = $(this);
-                var parentPanel = elem.data('clampedwidth');
-                var resizeFn = function () {
-                    var sideBarNavWidth = $(parentPanel).width()
-                            - parseInt(elem.css('paddingLeft')) - parseInt(elem.css('paddingRight'))
-                            - parseInt(elem.css('marginLeft')) - parseInt(elem.css('marginRight'))
-                            - parseInt(elem.css('borderLeftWidth')) - parseInt(elem.css('borderRightWidth'));
-                    elem.css('width', sideBarNavWidth);
+                    items : 4,
+                    itemsDesktop : [1199,3],
+                    itemsDesktopSmall : [979,3]
+                });
+
+                // Adam added it
+                $('[data-clampedwidth]').each(function () {
+                    var elem = $(this);
+                    var parentPanel = elem.data('clampedwidth');
+                    var resizeFn = function () {
+                        var sideBarNavWidth = $(parentPanel).width()
+                                - parseInt(elem.css('paddingLeft')) - parseInt(elem.css('paddingRight'))
+                                - parseInt(elem.css('marginLeft')) - parseInt(elem.css('marginRight'))
+                                - parseInt(elem.css('borderLeftWidth')) - parseInt(elem.css('borderRightWidth'));
+                        elem.css('width', sideBarNavWidth);
+                    };
+
+                    resizeFn();
+                    $(window).resize(resizeFn);
+                });
+
+                //loader stuff
+                var iFrame1Loaded = false;
+                var iFrame2Loaded = false;
+
+                $('#loader').loader();
+
+                function deleteLoader() {
+                    setTimeout(function() {
+                        $('#loader').loader('destroy');
+                        var div = document.getElementById("loaderBackground");
+                        div.parentElement.removeChild(div);
+                    }, 2000);
+                }
+
+                document.getElementById("iFrame1").onload = function() {
+                    iFrame1Loaded = true;
+                    if(iFrame2Loaded) deleteLoader();
                 };
 
-                resizeFn();
-                $(window).resize(resizeFn);
+                document.getElementById("iFrame2").onload = function() {
+                    iFrame2Loaded = true;
+                    if(iFrame1Loaded) deleteLoader();
+                };
             });
+        </script>
+        <script type="text/javascript">
+            //instantiating the widget
+            var adskViewerWidget = adskViewerWidget("prod");
+            adskViewerWidget.Init('#dropAreaContainer', true);
+        </script>
 
-            //loader stuff
-            var iFrame1Loaded = false;
-            var iFrame2Loaded = false;
-
-            $('#loader').loader();
-
-            function deleteLoader() {
-                setTimeout(function() {
-                    $('#loader').loader('destroy');
-                    var div = document.getElementById("loaderBackground");
-                    div.parentElement.removeChild(div);
-                }, 2000);
-            }
-
-            document.getElementById("iFrame1").onload = function() {
-                iFrame1Loaded = true;
-                if(iFrame2Loaded) deleteLoader();
-            };
-
-            document.getElementById("iFrame2").onload = function() {
-                iFrame2Loaded = true;
-                if(iFrame1Loaded) deleteLoader();
-            };
-        });
-    </script>
-  
 
 	</body>
 </html>
