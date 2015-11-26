@@ -28,7 +28,11 @@
       <link href="css/custom.css" rel="stylesheet">
       <link href="http://www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon.ico">
-	</head>
+	
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+  </head>
 	<body data-spy="scroll" data-target="#nav-parent" class="fuelux">
         <!--   NAVBAR     -->
 		<div class="bs-docs-section clearfix" id="navbar">
@@ -52,8 +56,12 @@
         <!--    END NAVBAR    -->
 		<!-- HEADER -->
 		<div class="clearfix">
-			<div class="row">
-				<div class="col-lg-12">
+			<div class="row fullscreen-scroller">
+				<div class="col-lg-12 animation-container">
+          <div class="output">
+              <script src="js/fss.js"></script>
+              <script src="js/background-animation.js"></script>
+          </div>
 					<div class="page-header content-header app-content-header api-detail-header view-and-data-api" id="title">
 						<div class="container app-container">
 							<div class="col-xs-12 col-sm-6 col-md-9 col-lg-9 app-title-container">
@@ -512,8 +520,7 @@
 			</div>
 		</div>
         <!-- END FOOTER -->
-		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
         <!--owl carousel-->
         <script src="js/owl.carousel.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
