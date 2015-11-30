@@ -105,7 +105,3 @@ function stopMotion() {
   toggleExplosion(true);
   toggleRotation(true);
 }
-
-viewerElem.viewer.addEventListener("Autodesk.Viewing.GEOMETRY_LOADED_EVENT", function () {
-	alert("geometry loaded");
-});
