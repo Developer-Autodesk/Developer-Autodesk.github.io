@@ -1,0 +1,25 @@
+{
+	"name":	"Fusion Animations",
+	"version":	"1.0",
+	"duration":	0,
+	"animations":	[{
+			"name":	"PerspectiveCamera",
+			"type":	"camera",
+			"id":	-1,
+			"hierarchy":	[{
+					"parent":	-1,
+					"keys":	[]
+				}]
+		}, {
+			"name":	"Head Cover 2:1",
+			"type":	"visibility",
+			"id":	420,
+			"hierarchy":	[{
+					"parent":	-1,
+					"keys":	[{
+							"time":	0,
+							"vis":	1
+						}]
+				}]
+		}]
+}
