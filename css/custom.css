@@ -12,6 +12,7 @@
 .lmv-motion-buttons {
 	position: relative;
 	top: -50px;
+	z-index: 1;
 }
 .lmv-motion {
 	height: 400px;	
