@@ -1,4 +1,17 @@
-viewerElem = document.querySelector('lmv-viewer');
+function initialize() {
+  var options = {
+	  'document' : './assets/translated-models/v8/0/1/Design.svf',
+	  'env':'Local'
+	  };
+
+  var viewerElement = document.getElementById('viewerElem');
+  viewerElem = new Autodesk.Viewing.Viewer3D(viewerElement, {});
+
+  Autodesk.Viewing.Initializer(options,function() {
+	viewerElem.initialize();
+	viewerElem.load(options.document);
+  });
+}
 
 var explodeScale = 0;
 var startExplosion = null;
@@ -20,7 +33,7 @@ function toggleExplosion(cancelMotion) {
 	isExploding = false;
 	if (cancelMotion) {
 	  explodeScale = 0;
-	  viewerElem.viewer.explode(explodeScale);
+	  viewerElem.explode(explodeScale);
 	}
   } else {
 	explodeMotion();
@@ -52,7 +65,7 @@ function explodeMotion(timestamp) {
 	outwardExplosion = true;
 	explodeScale = 0; // this solves when user go to another browser tab
   }
-  viewerElem.viewer.explode(explodeScale);
+  viewerElem.explode(explodeScale);
   explosionReq = window.requestAnimationFrame(explodeMotion);
 };
 
@@ -82,10 +95,10 @@ function rotateMotion(timestamp) {
   var rotateStep = 0.0005 * (progress || 0);
 
   // get the up axis
-  var worldUp = viewerElem.viewer.navigation.getWorldUpVector();
+  var worldUp = viewerElem.navigation.getWorldUpVector();
 
   // get the current position
-  var pos = viewerElem.viewer.navigation.getPosition();
+  var pos = viewerElem.navigation.getPosition();
 
   // copy that position
   var position = new THREE.Vector3(pos.x, pos.y, pos.z);
@@ -96,7 +109,7 @@ function rotateMotion(timestamp) {
 
   //apply the new position
   position.applyMatrix4(matrix);
-  viewerElem.viewer.navigation.setPosition(position);
+  viewerElem.navigation.setPosition(position);
 
   rotationReq = window.requestAnimationFrame(rotateMotion);
 }

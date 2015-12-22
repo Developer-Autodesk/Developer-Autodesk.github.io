@@ -9,11 +9,10 @@
     margin-left:auto;
     margin-right:auto;
 }
-lmv-viewer {
-	position: relative;
-	height: 480px;
-}
 .lmv-motion-buttons {
 	position: relative;
 	top: -50px;
+}
+.lmv-motion {
+	height: 400px;	
 }

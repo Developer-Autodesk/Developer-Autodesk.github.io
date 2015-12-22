@@ -37,7 +37,7 @@
 		<link rel="import" href="assets/elements/elements.min.html">
 		
 	</head>
-	<body data-spy="scroll" data-target="#nav-parent" class="fuelux">
+	<body data-spy="scroll" data-target="#nav-parent" class="fuelux" onload="initialize()">
 		<!--   NAVBAR     -->
 		<div class="bs-docs-section clearfix" id="navbar">
 			<div class="row">
@@ -144,12 +144,15 @@
 										</div>
 										<p>Here are samples of the API's capability: play with it before you continue reading. </p>
 										<div class="lmv-motion">
-											<lmv-viewer url="assets/translated-models/v8/0/1/Design.svf" style="height:400px"></lmv-viewer>
+											<div id="viewerElem" style="position:relative;height:400px"></div>
 											<div class="lmv-motion-buttons">
 												<div class="btn app-btn app-btn-sm app-btn-primary create-app-btn spaces" id="explode" onclick="toggleExplosion()">Explode</div>
 												<div class="btn app-btn app-btn-sm app-btn-primary create-app-btn spaces" id="rotate" onclick="toggleRotation()">Rotate</div>
 												<div class="btn app-btn app-btn-sm app-btn-primary create-app-btn spaces" id="reset-motion" onclick="stopMotion()">Reset Motion</div>
 											</div>
+										</div>
+										<div id="lmv-demo">
+											<div></div>
 										</div>
 									</div>
 									<!-- end live demo -->
