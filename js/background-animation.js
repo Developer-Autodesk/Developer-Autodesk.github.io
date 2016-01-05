@@ -1,6 +1,4 @@
-/* jshint ignore:start */
 (function(){
-
   //------------------------------
   // Mesh Properties
   //------------------------------
