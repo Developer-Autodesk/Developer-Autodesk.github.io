@@ -2642,6 +2642,7 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
+/* jshint ignore:start */
 //============================================================
 //
 // Copyright (C) 2013 Matthew Wagerfield
@@ -3358,9 +3359,7 @@ FSS.CanvasRenderer.prototype.setSize = function(width, height) {
 	                    this.context.oBackingStorePixelRatio ||
 	                    this.context.backingStorePixelRatio || 1,
 
-/* jshint ignore:start */
   this.ratio = this.devicePixelRatio / this.backingStoreRatio;
-/* jshint ignore:end */
 
   FSS.Renderer.prototype.setSize.call(this, width, height);
 
