@@ -1,0 +1,28 @@
+{
+  "name": "developer-autodesk.github.io",
+  "version": "1.0.0",
+  "description": "An entry portal for Autodesk's API code samples.",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1",
+    "jshint": "^2.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Developer-Autodesk/Developer-Autodesk.github.io.git"
+  },
+  "author": "Shiya Luo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Developer-Autodesk/Developer-Autodesk.github.io/issues"
+  },
+  "homepage": "https://github.com/Developer-Autodesk/Developer-Autodesk.github.io#readme"
+}

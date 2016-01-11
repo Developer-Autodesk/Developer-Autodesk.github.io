@@ -54,9 +54,9 @@ function explodeMotion(timestamp) {
 
   // explode outward and inward
   if (outwardExplosion) {
-	explodeScale += explodeStep; 
+	explodeScale += explodeStep;
   } else {
-	explodeScale -= explodeStep; 
+	explodeScale -= explodeStep;
   }
   if (explodeScale > 1) {
 	outwardExplosion = false;
@@ -67,7 +67,7 @@ function explodeMotion(timestamp) {
   }
   viewerElem.explode(explodeScale);
   explosionReq = window.requestAnimationFrame(explodeMotion);
-};
+}
 
 /**
  * Toggle the rotation movement

@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 //============================================================
 //
 // Copyright (C) 2013 Matthew Wagerfield
@@ -706,29 +707,29 @@ FSS.CanvasRenderer = function() {
 FSS.CanvasRenderer.prototype = Object.create(FSS.Renderer.prototype);
 
 FSS.CanvasRenderer.prototype.setSize = function(width, height) {
-	
+
   this.devicePixelRatio = window.devicePixelRatio || 1,
   this.backingStoreRatio = this.context.webkitBackingStorePixelRatio ||
 	                    this.context.mozBackingStorePixelRatio ||
 	                    this.context.msBackingStorePixelRatio ||
 	                    this.context.oBackingStorePixelRatio ||
 	                    this.context.backingStorePixelRatio || 1,
-	
+
   this.ratio = this.devicePixelRatio / this.backingStoreRatio;
-  	
+
   FSS.Renderer.prototype.setSize.call(this, width, height);
-  
+
   this.element.width = width * this.ratio;
   this.element.height = height * this.ratio;
-    
+
   this.element.style.width = width;
   this.element.style.height = height;
-  
+
   this.context.setTransform(1 * this.ratio, 0, 0, -1  * this.ratio, this.halfWidth * this.ratio, this.halfHeight * this.ratio);
-  
+
   $(this.element).width(width);
   $(this.element).height(height);
-  
+
   return this;
 };
 
@@ -761,36 +762,36 @@ FSS.CanvasRenderer.prototype.render = function(scene) {
       for (t = mesh.geometry.triangles.length - 1; t >= 0; t--) {
         triangle = mesh.geometry.triangles[t];
         color = triangle.color.format();
-        
-        
+
+
         this.context.beginPath();
         this.context.moveTo(triangle.a.position[0], triangle.a.position[1]);
         this.context.lineTo(triangle.b.position[0], triangle.b.position[1]);
         this.context.lineTo(triangle.c.position[0], triangle.c.position[1]);
         this.context.closePath();
         this.context.strokeStyle = "rgb(6, 150, 215)";
-        
-        
+
+
         this.context.fillStyle = color;
-        
-        
+
+
         this.context.stroke();
         this.context.fill();
-        
-        
+
+
       }
-      
+
       for (t = mesh.geometry.triangles.length - 1; t >= 0; t--) {
         triangle = mesh.geometry.triangles[t];
         color = triangle.color.format();
-        
+
         this.context.beginPath();
         this.context.arc(triangle.a.position[0], triangle.a.position[1], 5, 0, pi2, false);
         this.context.fillStyle = "rgb(6, 150, 215)";
         this.context.fill();
-        
+
       }
-      
+
     }
   }
   return this;
@@ -800,7 +801,7 @@ FSS.CanvasRenderer.prototype.render = function(scene) {
  * @class WebGL Renderer
  * @author Matthew Wagerfield
  */
- 
+
 FSS.WebGLRenderer = function() {
   FSS.Renderer.call(this);
   this.element = document.createElement('canvas');
@@ -1206,7 +1207,7 @@ FSS.WebGLRenderer.FS = function(lights) {
  * @class SVG Renderer
  * @author Matthew Wagerfield
  */
- 
+
 FSS.SVGRenderer = function() {
   FSS.Renderer.call(this);
   this.element = document.createElementNS(FSS.SVGNS, 'svg');
@@ -1242,56 +1243,56 @@ FSS.SVGRenderer.prototype.render = function(scene) {
     mesh = scene.meshes[m];
     if (mesh.visible) {
       mesh.update(scene.lights, true);
-      
+
       // Render Triangles
       for (t = mesh.geometry.triangles.length - 1; t >= 0; t--) {
-	      
+
         triangle = mesh.geometry.triangles[t];
-        
+
         if (triangle.polygon.parentNode !== this.element) {
-          this.element.appendChild(triangle.polygon);          
+          this.element.appendChild(triangle.polygon);
         }
-        
+
         points  = this.formatPoint(triangle.a)+' ';
         points += this.formatPoint(triangle.b)+' ';
         points += this.formatPoint(triangle.c);
         style = this.formatStyle(triangle.color.format());
-        
+
         triangle.polygon.setAttributeNS(null, 'stroke', "rgb(98, 128, 163)");
         triangle.polygon.setAttributeNS(null, 'stroke-width', 1);
         triangle.polygon.setAttributeNS(null, 'points', points);
         triangle.polygon.setAttributeNS(null, 'style', style);
       }
-      
-      
+
+
       for (t = mesh.geometry.triangles.length - 1; t >= 0; t--) {
-	      
+
         triangle = mesh.geometry.triangles[t];
-        
+
         if (triangle.a.polygon.parentNode !== this.element) {
-          this.element.appendChild(triangle.a.polygon);          
+          this.element.appendChild(triangle.a.polygon);
         }
-                
+
         var splitPoints = this.formatPoint(triangle.a);
         splitPoints = splitPoints.split(",");
-        
+
         triangle.a.polygon.setAttributeNS(null, 'cx', splitPoints[0]);
         triangle.a.polygon.setAttributeNS(null, 'cy', splitPoints[1]);
-        
+
       }
 
-	  /** 
+	  /**
 
       for (t = mesh.geometry.vertices.length - 1; t >= 0; t--) {
         vertex = mesh.geometry.vertices[t];
         if (vertex.polygon.parentNode !== this.element) {
-          this.element.appendChild(vertex.polygon);          
+          this.element.appendChild(vertex.polygon);
         }
-        
+
         vertex.polygon.setAttributeNS(null, 'cx', vertex.position[0]);
         vertex.polygon.setAttributeNS(null, 'cy', vertex.position[1]);
-        
-        
+
+
 	  }; **/
 
     }

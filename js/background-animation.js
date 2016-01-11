@@ -1,5 +1,4 @@
 (function(){
-
   //------------------------------
   // Mesh Properties
   //------------------------------
@@ -55,7 +54,7 @@
   //------------------------------
   // Export Properties
   //------------------------------
-  
+
   //------------------------------
   // UI Properties
   //------------------------------
@@ -69,11 +68,11 @@
   var now, start = Date.now();
   var center = FSS.Vector3.create();
   var attractor = FSS.Vector3.create();
-  
+
   attractor = [-804, -315, 286];
-  
-  var container = $('.animation-container')[0];    
-  var output = $('.output')[0];  
+
+  var container = $('.animation-container')[0];
+  var output = $('.output')[0];
   var renderer, scene, mesh, geometry, material;
   var webglRenderer, canvasRenderer, svgRenderer;
 
@@ -87,7 +86,7 @@
     createLights();
     addEventListeners();
     resize(container.offsetWidth, container.offsetHeight);
-    animate();  
+    animate();
   }
 
   function createRenderer() {
@@ -172,10 +171,10 @@
       light.core = document.createElementNS(FSS.SVGNS, 'circle');
       light.core.setAttributeNS(null, 'fill', light.diffuseHex);
       light.core.setAttributeNS(null, 'r', '4');
-      
+
       //Set Initial Position
       light.position = [-804, -315, 286];
-        
+
     }
   }
 
@@ -208,7 +207,7 @@
       light = scene.lights[l];
 
       // Reset the z position of the light
-      
+
       FSS.Vector3.setZ(light.position, LIGHT.zOffset);
 
       // Calculate the force Luke!
@@ -251,7 +250,7 @@
   function addEventListeners() {
     window.addEventListener('resize', onWindowResize);
     container.addEventListener('click', onMouseClick);
-    var mousemoveContainer = $(".fullscreen-scroller")[0];  
+    var mousemoveContainer = $(".fullscreen-scroller")[0];
     mousemoveContainer.addEventListener('mousemove', onMouseMove);
   }
 
@@ -263,7 +262,7 @@
     FSS.Vector3.subtract(attractor, center);
   }
 
-  function onMouseMove(event) {	  
+  function onMouseMove(event) {
     FSS.Vector3.set(attractor, event.x, renderer.height - event.y);
     FSS.Vector3.subtract(attractor, center);
   }
