@@ -22,14 +22,14 @@
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
-		<script src="dist/all.min.js"></script>
+	<!-- 	<script src="dist/all.min.js"></script> -->
 
 		<!--	LMV References	-->
 		<link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.css?v=v1.2.22" type="text/css">
   		<script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js?v=v1.2.22"></script>
 
 	</head>
-	<body data-spy="scroll" data-target="#nav-parent" class="fuelux" onload="initialize()">
+	<body data-spy="scroll" data-target="#nav-parent" class="fuelux">
 		<!--   NAVBAR     -->
 		<div class="bs-docs-section clearfix" id="navbar">
 			<div class="row">
@@ -135,17 +135,41 @@
 											<h2 id="live-demo" class="app-api-section-title first-child">Play with it live</h2>
 										</div>
 										<p>Here are samples of the API's capability: play with it before you continue reading. </p>
-										<div class="lmv-motion">
+
+										<div id="iframeWrapper" style="position: relative;">
+                                                <div id="loaderBackground"
+                                                     style="position: absolute; top: 0; left: 0; width:100%; height:100%;z-index:2; background-color:#FFFFFF"></div>
+                                                <div id="loader"
+                                                     class="loader"
+                                                     data-initialize="loader"
+                                                     style="position: absolute; top: 40%; left: 45%; width:50%; height:50%;z-index:3;"></div>
+
+                                                <iframe id="iFrame1"
+                                                        width='49%' height='400' frameborder='0' style="z-index:1"
+                                                        allowFullScreen webkitallowfullscreen mozallowfullscreen
+                                                        src='http://viewer.autodesk.io/node/gallery/embed?id=54464d43af600b5c0a87254a&extIds=_Autodesk.ADN.Viewing.Extension.GithubDemo&viewerConfig=%27{%22viewerType%22:%22Viewer3D%22}%27'>
+                                                </iframe>
+                                                <iframe id="iFrame2"
+                                                        width='49%' height='400' frameborder='0' style="z-index:1"
+                                                        allowFullScreen webkitallowfullscreen mozallowfullscreen
+                                                        src='http://viewer.autodesk.io/node/gallery/embed?id=5476efc783bdd31804754db5&extIds=_Autodesk.ADN.Viewing.Extension.GithubDemo&viewerConfig=%27{%22viewerType%22:%22Viewer3D%22}%27'>
+                                                </iframe>
+                                            </div>
+
+										<!-- <div class="lmv-motion">
 											<div id="viewerElem" style="position:relative;height:400px"></div>
 											<div class="lmv-motion-buttons">
 												<div class="btn app-btn app-btn-sm app-btn-primary create-app-btn spaces" id="explode" onclick="toggleExplosion()">Explode</div>
 												<div class="btn app-btn app-btn-sm app-btn-primary create-app-btn spaces" id="rotate" onclick="toggleRotation()">Rotate</div>
 												<div class="btn app-btn app-btn-sm app-btn-primary create-app-btn spaces" id="reset-motion" onclick="stopMotion()">Reset Motion</div>
 											</div>
+
+										
 										</div>
+
 										<div id="lmv-demo">
 											<div></div>
-										</div>
+										</div> -->
 									</div>
 									<!-- end live demo -->
 									<!-- start play with api -->
@@ -530,6 +554,32 @@
 			        resizeFn();
 			        $(window).resize(resizeFn);
 			    });
+
+
+			    //loader stuff
+            var iFrame1Loaded = false;
+            var iFrame2Loaded = false;
+
+            $('#loader').loader();
+
+            function deleteLoader() {
+                setTimeout(function() {
+                    $('#loader').loader('destroy');
+                    var div = document.getElementById("loaderBackground");
+                    div.parentElement.removeChild(div);
+                }, 2000);
+            }
+
+            document.getElementById("iFrame1").onload = function() {
+                iFrame1Loaded = true;
+                if(iFrame2Loaded) deleteLoader();
+            };
+
+            document.getElementById("iFrame2").onload = function() {
+                iFrame2Loaded = true;
+                if(iFrame1Loaded) deleteLoader();
+            };
+
 
 			});
 		</script>
