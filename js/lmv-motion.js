@@ -1,4 +1,4 @@
-function initialize() {
+function initializeViewer() {
   var options = {
 	  'document' : './assets/translated-models/v8/0/1/Design.svf',
 	  'env':'Local'
@@ -11,6 +11,12 @@ function initialize() {
 	viewerElem.initialize();
 	viewerElem.load(options.document);
   });
+
+  viewerElem.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
+    toggleExplosion(true);
+    toggleRotation(true);
+  });
+
 }
 
 var explodeScale = 0;
