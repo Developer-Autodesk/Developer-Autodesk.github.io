@@ -25,9 +25,10 @@
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
-		<!--	LMV References	-->
-		<link rel="stylesheet" href="//developer-autodesk.github.io/viewer3d/2.2/style.css" type="text/css">
-  		<script src="//developer-autodesk.github.io/viewer3d/2.2/viewer3D.js"></script>
+		<!-- Autodesk Forge Viewer References -->
+		<link rel="stylesheet" href="https://autodeskviewer.com/viewers/2.7/style.min.css" />
+		<!-- script src="https://autodeskviewer.com/viewers/2.7/three.min.js"></script -->
+		<script src="https://autodeskviewer.com/viewers/2.7/viewer3D.min.js"></script>
 
 	</head>
 	<body data-spy="scroll" data-target="#nav-parent" class="fuelux" onload="initializeViewer()">
@@ -510,7 +511,6 @@
 			$(document).ready(function(){
 			    $('.owl-carousel').owlCarousel({
 			        autoPlay: 3000, //Set AutoPlay to 3 seconds
-
 			        items : 4,
 			        itemsDesktop : [1199,3],
 			        itemsDesktopSmall : [979,3]
@@ -531,7 +531,6 @@
 			        resizeFn();
 			        $(window).resize(resizeFn);
 			    });
-
 			});
 		</script>
 		<script>
@@ -539,11 +538,8 @@
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 			ga('create', 'UA-66989702-1', 'auto');
 			ga('send', 'pageview');
-
-
 		</script>
 	</body>
 </html>
