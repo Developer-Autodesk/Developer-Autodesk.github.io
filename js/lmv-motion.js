@@ -15,6 +15,9 @@ function initializeViewer() {
   viewerElem.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
     toggleExplosion(true);
     toggleRotation(true);
+
+    viewerElem.removeEventListener (Autodesk.Viewing.GEOMETRY_LOADED_EVENT, arguments.callee) ;
+    setTimeout (function () { viewerElem.autocam.setHomeViewFrom (viewerElem.navigation.getCamera ()) ; }, 1000) ;
   });
 
 }
