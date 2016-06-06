@@ -1,7 +1,7 @@
 {
   "name": "developer-autodesk.github.io",
-  "version": "1.0.0",
-  "description": "An entry portal for Autodesk's API code samples.",
+  "version": "1.1.0",
+  "description": "An entry portal for Autodesk Forge Viewer API code samples.",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
