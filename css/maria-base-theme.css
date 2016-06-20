@@ -414,7 +414,7 @@ fieldset[disabled] .btn {
    .app-button-container.mob-app-button-container{
 		display: block;
 		margin-top: 0;
-   } 
+   }
    .mob-app-button-container .btn{
 		padding: 12px 20px;
 		width: calc(100% - 1px);
@@ -755,7 +755,7 @@ header{
 	}
 	.app-navbar .app-container{
 	  position: relative;
-	} 
+	}
 	.app-navbar .navbar-nav {
 	  display: inline-block;
 	  margin: 0;
@@ -763,10 +763,10 @@ header{
 	}
 	#sign-in-block{
 	  display:none;
-	} 
+	}
 	.navbar-nav-large.navbar-signed-in .navbar-right #sign-in-section{
 	  position:initial;
-	} 
+	}
 	#sign-in-section .dropdown-menu {
 	  left: 0px;
 	  top: 128px;
@@ -811,8 +811,8 @@ header{
     .navbar-dropdown-menu .app-api-description {
 	  display: none;
     }
-    .navbar-dropdown-menu .app-api-description p{ 
-      margin: 0 
+    .navbar-dropdown-menu .app-api-description p{
+      margin: 0
     }
     .navbar-dropdown-menu .app-api-name h5 {
 	  margin: 0;
@@ -894,12 +894,9 @@ header{
   background-size: cover;
 }
 .page-header.api-detail-header.view-and-data-api{
-/*	background: url("../img/Banner_ApiDetail_2x.png") transparent;
-	position: relative;
-    background-size: cover;
-	opacity: .85;*/
   background-color: transparent;
-  position: absolute;
+  position: relative;
+  background-size: cover;
   top: 0px;
   left: 0px;
   border: 0px;

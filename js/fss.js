@@ -700,6 +700,7 @@ FSS.CanvasRenderer = function() {
   FSS.Renderer.call(this);
   this.element = document.createElement('canvas');
   this.element.style.display = 'block';
+  this.element.style.position = 'absolute';
   this.context = this.element.getContext('2d');
   this.setSize(this.element.width, this.element.height);
 };
