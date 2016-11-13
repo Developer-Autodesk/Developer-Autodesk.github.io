@@ -35,7 +35,7 @@ export default {
   padding: 0;
 }
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   background: #e2e1e0;
   text-align: center;
   height: 100%;
@@ -59,5 +59,8 @@ body {
 }
 .repo-card:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+h3 {
+  margin-bottom: 0.5rem;
 }
 </style>
