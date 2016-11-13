@@ -1,5 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: './src/main.js',
@@ -22,9 +23,10 @@ module.exports = {
         loader: 'babel',
         exclude: /node_modules/
       },
-      {
-        test: /\.css$/,
-        loader: 'style!css'
+      { test: /\.css$/, loader: ExtractTextPlugin.extract({
+          fallbackLoader: "style-loader",
+          loader: "css-loader"
+        }) 
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
@@ -44,9 +46,9 @@ module.exports = {
     ]
   },
   plugins:[
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
+    new ExtractTextPlugin({
+      filename: "dist/styles.css",
+      allChunks: true
     })
   ],
   devServer: {

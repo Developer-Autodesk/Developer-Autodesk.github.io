@@ -1,12 +1,13 @@
 <template>
   <div id="app">
+    <div class="repo-card">
+      <p>We currently have {{repos.length}} repos.</p>
+    </div>
     <a v-for="repo in repos" v-bind:href="repo.html_url">
       <div class="repo-card">
-        <div class="repo-text">
-          <h3>{{ repo.name }}</h3>
-          <p>{{ repo.description }}</p>
-          <a v-bind:href="repo.html_url">Source Code</a>
-        </div>
+        <h3>{{ repo.name }}</h3>
+        <p>{{ repo.description }}</p>
+        <a v-bind:href="repo.html_url"><p>Source Code</p></a>
       </div>
     </a>
   </div>
@@ -23,8 +24,7 @@ export default {
   },
 
   methods: {
-    startHacking () {
-    }
+    // TODO
   }
 }
 </script>
@@ -58,9 +58,12 @@ body {
   
 }
 .repo-card:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 h3 {
   margin-bottom: 0.5rem;
+}
+p {
+  
 }
 </style>
