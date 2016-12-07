@@ -1,8 +1,7 @@
 import Vue from 'vue';
-import App from './App.vue';
-// require('css!./styles/custom.css');
+import Cards from './Cards.vue';
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+  el: '#cards',
+  render: h => h(Cards)
 });

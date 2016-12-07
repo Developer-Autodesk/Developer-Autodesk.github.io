@@ -1,3 +1,18 @@
+@import './font-awesome-4.7.0/css/font-awesome.min.css';
+@font-face {
+  font-family: 'Artifakt Element';
+  src: url('./fonts/Element%20WEB/WOFF/Artifakt%20Element%20Regular.woff') format('woff');
+}
+body {
+    font-family: "Artifakt Element", fallback, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+    color: #EE8822;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -9,7 +24,6 @@ ul {
 li {
     float: left;
 }
-
 li a {
     display: block;
     color: black;
