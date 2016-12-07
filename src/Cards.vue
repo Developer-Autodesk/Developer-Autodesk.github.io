@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="cards">
     <div class="repo-card">
       <p>We currently have {{repos.length}} repos.</p>
     </div>
@@ -7,7 +7,7 @@
       <div class="repo-card">
         <h3>{{ repo.name }}</h3>
         <p>{{ repo.description }}</p>
-        <a v-bind:href="repo.html_url"><p>Source Code</p></a>
+        <p><a v-bind:href="repo.html_url"><i class="fa fa-github" aria-hidden="true"></i> Source Code</a></p>
       </div>
     </a>
   </div>
@@ -35,7 +35,6 @@ export default {
   padding: 0;
 }
 body {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   background: #e2e1e0;
   text-align: center;
   height: 100%;
