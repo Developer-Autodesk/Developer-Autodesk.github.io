@@ -2,19 +2,32 @@
   <div id="cards">
     <div class="repo-card">
       <p>We currently have {{repos.length}} repos.</p>
+      <p><a @click="sortByPopularity">Sort By Popularity</a></p>
+      <p><a @click="sortByAlphabetical">Sort By Alphabetical</a></p>
     </div>
     <a v-for="repo in repos" v-bind:href="repo.html_url">
       <div class="repo-card">
         <h3>{{ repo.name }}</h3>
         <p>{{ repo.description }}</p>
-        <p><a v-bind:href="repo.html_url"><i class="fa fa-github" aria-hidden="true"></i> Source Code</a></p>
+        <p>{{ repo.stargazers_count }}</p>
+        <p>
+          <span><a v-bind:href="repo.html_url"><i class="fa fa-github" aria-hidden="true"></i> Source Code</a></span> 
+          <span><a v-show="repo.homepage" v-bind:href="repo.homepage"><i class="fa fa-desktop" aria-hidden="true"></i> Demo</a></span>
+        </p>
       </div>
     </a>
   </div>
 </template>
 
 <script>
-import repos from './repos.json';
+import reposJSON from './repos.json';
+
+let repos = [];
+let i = 0;
+for (let repo of reposJSON) {
+  repos[i] = repo;
+  i++;
+}
 
 export default {
   data () {
@@ -24,7 +37,18 @@ export default {
   },
 
   methods: {
-    // TODO
+    sortByPopularity: () => {
+      repos.sort((a, b) => {
+        return b.stargazers_count - a.stargazers_count;
+      });
+    },
+    sortByAlphabetical: () => {
+      repos.sort((a, b) => {
+        let aName = a.name;
+        let bName = b.name;
+        return aName.localeCompare(bName);
+      });
+    }
   }
 }
 </script>
