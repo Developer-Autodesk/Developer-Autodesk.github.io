@@ -5,6 +5,7 @@
       <p><br>Sort: </p>
       <p><a href="#" @click="sortByPopularity">Most Popular</a></p>
       <p><a href="#" @click="sortByAlphabetical">Alphabetical</a></p>
+      <p><a href="#" @click="sortByLastUpdated">Last Updated</a></p>
     </div>
     <div class="repo-card">
       <p>Filter by Language: </p>
@@ -69,9 +70,12 @@ export default {
     },
     sortByAlphabetical: () => {
       repos.sort((a, b) => {
-        let aName = a.name;
-        let bName = b.name;
-        return aName.localeCompare(bName);
+        return a.name.localeCompare(b.name);
+      });
+    },
+    sortByLastUpdated: () => {
+      repos.sort((a,b) => {
+        return b.updated_at.localeCompare(a.updated_at);
       });
     },
     filterByLanguage: (language) => {
