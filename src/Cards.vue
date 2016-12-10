@@ -1,17 +1,22 @@
 <template>
   <div id="cards">
     <div class="repo-card">
-      <p>We currently have {{repos.length}} repos.</p>
-      <p><a @click="sortByPopularity">Sort By Popularity</a></p>
-      <p><a @click="sortByAlphabetical">Sort By Alphabetical</a></p>
+      <p>There are {{repos.length}} repos.</p>
+      <p><br>Sort: </p>
+      <p><a href="#" @click="sortByPopularity">Most Popular</a></p>
+      <p><a href="#" @click="sortByAlphabetical">Alphabetical</a></p>
+    </div>
+    <div class="repo-card">
+      <p>Filter by Language: </p>
+      <p><a v-for="(repo, language) in languages" href="#" @click="filterByLanguage(language)">{{ language }} </a></p>
     </div>
     <a v-for="repo in repos" v-bind:href="repo.html_url">
       <div class="repo-card">
         <h3>{{ repo.name }}</h3>
         <p>{{ repo.description }}</p>
-        <p>{{ repo.stargazers_count }}</p>
         <p>
           <span><a v-bind:href="repo.html_url"><i class="fa fa-github" aria-hidden="true"></i> Source Code</a></span> 
+          <span><i class="fa fa-star" aria-hidden="true"></i> {{ repo.stargazers_count }}</span> 
           <span><a v-show="repo.homepage" v-bind:href="repo.homepage"><i class="fa fa-desktop" aria-hidden="true"></i> Demo</a></span>
         </p>
       </div>
@@ -23,16 +28,36 @@
 import reposJSON from './repos.json';
 
 let repos = [];
+let languages = {
+  // language: [list of repos]
+};
 let i = 0;
+
 for (let repo of reposJSON) {
+  // put repos in a list
   repos[i] = repo;
+
+  // map language -> repo
+  let language = repo.language;
+  if (!languages[language] && language !== null) {
+    languages[language] = [];    
+  } else if (language !== null) {
+    languages[language].push(repo);    
+  }
+
   i++;
 }
 
+languages.all = [];
+languages.all.push(...repos);
+
 export default {
+
+  // pass these to the page
   data () {
     return {
-      repos: repos
+      repos: repos,
+      languages: languages
     }
   },
 
@@ -48,6 +73,25 @@ export default {
         let bName = b.name;
         return aName.localeCompare(bName);
       });
+    },
+    filterByLanguage: (language) => {
+      // restock all repos
+      repos.splice(0, repos.length);
+      repos.push(...languages.all);
+
+      if (language === 'all') {
+        return;
+      }
+      let filtered = [];
+
+      for (let repo of repos) {
+        if (repo.language === language) {
+          filtered.push(repo);
+        }
+      }
+      repos.splice(0, repos.length);
+      repos.push(...filtered);
+      console.log(repos);
     }
   }
 }
