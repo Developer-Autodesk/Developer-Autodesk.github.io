@@ -14,7 +14,7 @@ npm install
 npm run dev
 ```
 Built with webpack + vue.js. All source files in `src` folder, compiled into `dist` folder.
-
+The cards on the page are defined in src/Cards.vue. 
 
 ## Build
 
