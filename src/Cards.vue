@@ -44,11 +44,10 @@ let apis = {
   "Model Derivative" : [],
   "Data Management" : []
 } // enum list of apis with Autodesk
-let i = 0;
 
 for (let repo of reposJSON) {
   // put repos in a list
-  repos[i] = repo;
+  repos.push(repo);
 
   // map language -> repo
   let language = repo.language;
@@ -59,13 +58,13 @@ for (let repo of reposJSON) {
     languages[language].push(repo);
   }
 
-  // TODO map api -> repo
+  // map api -> repo
   // reg match api with the name of repo
   let viewerreg = /[vV]iewer/g,
       dareg = /[dD]esign.[aA]utomation/g,
       mdreg = /[mM]odel.[dD]erivative/g,
       dmreg = /[dD]ata.[mM]anagement/g;
-  // can match multiple apis
+  // can match multiple apis per repo
   if (repo.name.match(viewerreg)) {
     apis["Viewer"].push(repo);
   }
@@ -78,15 +77,12 @@ for (let repo of reposJSON) {
   if (repo.name.match(dmreg)) {
     apis["Data Management"].push(repo);
   }
-  
-  i++;
 }
 
 languages.all.push(...repos);
 apis.all.push(...repos);
 
 export default {
-
   // pass these to the page
   data () {
     return {
