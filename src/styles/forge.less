@@ -1,10 +1,23 @@
+// Colors
+@text-color: #333333;
+@text-color-light: #666666;
+@primary-color: #EE8822;
+@primary-color-dark: #CF792D;
+@primary-color-light: #F4B270;
+@background-gray: #DEDEDE;
+
+* {
+    font-family: "Artifakt Element", fallback, sans-serif;
+}
 .forge-header {
+  color: @text-color;
   h1 {
     font-family: "Artifakt Legend", fallback, sans-serif;
     font-size: 36px;
   }
 }
 .forge-title {
+  color: @text-color;
   h1 {
   font-size: 24px;
   }
@@ -17,8 +30,45 @@
   }
 }
 .forge-body {
+  color: @text-color-light;
   p {
     font-size: 14px;
-    color: #666666;
   } 
+}
+button { // still TODO
+  padding: 9px 30px 9px 30px;
+  border: none 0px;
+  font-size: 16px;
+  height: 40px;
+  background-color: @primary-color;
+  text-transform: uppercase;
+  color: white;
+  a {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+  &:hover {
+    background-color: @primary-color-dark;
+  }
+  &:disabled {
+    background-color: @background-gray;
+    color: #919191;
+  }
+  &.secondary {
+    background-color: white;
+    border: solid 2px @primary-color;
+    color: @primary-color;
+    a {
+      color: @primary-color;
+      &:hover {
+        color: @primary-color-dark;
+      }
+    }
+    &:hover {
+      border: solid 2px @primary-color-dark;
+      color: @primary-color-dark;
+    }
+  }
 }
