@@ -28,13 +28,7 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-        loader: 'file',
-        query: {
-          outputStyle: 'expanded',
-          includePaths: [
-              path.resolve(process.cwd(), "node_modules")
-          ]
-        }
+        loader: 'file'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,

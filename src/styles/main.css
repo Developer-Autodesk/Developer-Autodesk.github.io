@@ -18,7 +18,7 @@ body {
 }
 a {
   text-decoration: none;
-  color: black;
+  color: #404040;
 }
 a:hover {
     color: #EE8822;
@@ -35,7 +35,7 @@ li {
 }
 li a {
     display: block;
-    color: black;
+    color: #404040;
     text-align: center;
     padding: 24px 16px;
     text-decoration: none;

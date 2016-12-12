@@ -87,8 +87,8 @@ export default {
   data () {
     return {
       repos : repos,
-      languages : languages,
-      apis : apis
+      languages : languages, // used in filter by language
+      apis : apis // used in filter by api used
     }
   },
 
