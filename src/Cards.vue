@@ -11,6 +11,10 @@
       <p>Filter by Language: </p>
       <p><a v-for="(repo, language) in languages" href="#" @click="filterByLanguage(language)">{{ language }} </a></p>
     </div>
+    <div class="repo-card">
+      <p>Filter by API Used: </p>
+      <p><a v-for="(repo, api) in apis" href="#" @click="filterByAPIUsed(api)">{{ api }} </a></p>
+    </div>
     <a v-for="repo in repos" v-bind:href="repo.html_url">
       <div class="repo-card">
         <h3>{{ repo.name }}</h3>
@@ -31,7 +35,16 @@ import reposJSON from './repos.json';
 let repos = [];
 let languages = {
   // language: [list of repos]
+  all : []
 };
+
+let apis = {
+  all : [],
+  "Viewer" : [],
+  "Design Automation" : [],
+  "Model Derivative" : [],
+  "Data Management" : []
+} // enum list of apis with Autodesk
 let i = 0;
 
 for (let repo of reposJSON) {
@@ -40,25 +53,47 @@ for (let repo of reposJSON) {
 
   // map language -> repo
   let language = repo.language;
-  if (!languages[language] && language !== null) {
-    languages[language] = [];    
-  } else if (language !== null) {
-    languages[language].push(repo);    
+  if (language !== null) {
+    if (!languages[language]) {
+      languages[language] = [];   
+    }
+    languages[language].push(repo);
   }
 
+  // TODO map api -> repo
+  // reg match api with the name of repo
+  let viewerreg = /[vV]iewer/g,
+      dareg = /[dD]esign.[aA]utomation/g,
+      mdreg = /[mM]odel.[dD]erivative/g,
+      dmreg = /[dD]ata.[mM]anagement/g;
+  // can match multiple apis
+  if (repo.name.match(viewerreg)) {
+    apis["Viewer"].push(repo);
+  }
+  if (repo.name.match(dareg)) {
+    apis["Design Automation"].push(repo);
+  }
+  if (repo.name.match(mdreg)) {
+    apis["Model Derivative"].push(repo);
+  }
+  if (repo.name.match(dmreg)) {
+    apis["Data Management"].push(repo);
+  }
+  
   i++;
 }
 
-languages.all = [];
-languages.all.push(...repos);
+  languages.all.push(...repos);
+  apis.all.push(...repos);
 
 export default {
 
   // pass these to the page
   data () {
     return {
-      repos: repos,
-      languages: languages
+      repos : repos,
+      languages : languages,
+      apis : apis
     }
   },
 
@@ -79,23 +114,12 @@ export default {
       });
     },
     filterByLanguage: (language) => {
-      // restock all repos
       repos.splice(0, repos.length);
-      repos.push(...languages.all);
-
-      if (language === 'all') {
-        return;
-      }
-      let filtered = [];
-
-      for (let repo of repos) {
-        if (repo.language === language) {
-          filtered.push(repo);
-        }
-      }
+      repos.push(...languages[language]);
+    },
+    filterByAPIUsed: (apiName) => {
       repos.splice(0, repos.length);
-      repos.push(...filtered);
-      console.log(repos);
+      repos.push(...apis[apiName]);
     }
   }
 }
@@ -125,16 +149,10 @@ body {
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   vertical-align: top;
 }
-.repo-text {
-  
-}
 .repo-card:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 h3 {
   margin-bottom: 0.5rem;
-}
-p {
-  
 }
 </style>
