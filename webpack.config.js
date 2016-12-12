@@ -23,14 +23,18 @@ module.exports = {
         loader: 'babel',
         exclude: /node_modules/
       },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract({
-          fallbackLoader: "style-loader",
-          loader: "css-loader"
-        }) 
+      {
+        test: /\.css$/, loader: 'style-loader!css-loader'
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-        loader: 'file'
+        loader: 'file',
+        query: {
+          outputStyle: 'expanded',
+          includePaths: [
+              path.resolve(process.cwd(), "node_modules")
+          ]
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,

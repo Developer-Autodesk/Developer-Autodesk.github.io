@@ -1,7 +1,17 @@
 @import './font-awesome-4.7.0/css/font-awesome.min.css';
 @font-face {
   font-family: 'Artifakt Element';
-  src: url('./fonts/Element%20WEB/WOFF/Artifakt%20Element%20Regular.woff') format('woff');
+  src:  url('./fonts/element/EOT/Artifakt_Element_Regular.eot') format('eot'),
+        url('./fonts/element/TTF/Artifakt_Element_Regular.ttf') format('ttf'),
+        url('./fonts/element/WOFF/Artifakt_Element_Regular.woff') format('woff'),
+        url('./fonts/element/WOFF2/Artifakt_Element_Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Artifakt Legend';
+  src:  url('./fonts/legend/EOT/Artifakt_Legend_Regular.eot') format('eot'),
+        url('./fonts/legend/TTF/Artifakt_Legend_Regular.ttf') format('ttf'),
+        url('./fonts/legend/WOFF/Artifakt_Legend_Regular.woff') format('woff'),
+        url('./fonts/legend/WOFF2/Artifakt_Legend_Regular.woff2') format('woff2');
 }
 body {
     font-family: "Artifakt Element", fallback, sans-serif;
@@ -31,11 +41,7 @@ li a {
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
+li a:hover {
     background-color: #D17920;
     color: white;
-}
-
-.active {
-    background-color: #4CAF50;
 }
