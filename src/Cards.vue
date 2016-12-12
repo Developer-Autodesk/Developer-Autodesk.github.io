@@ -10,8 +10,7 @@
     <div class="repo-card">
       <p>Filter by Language: </p>
       <p><a v-for="(repo, language) in languages" href="#" @click="filterByLanguage(language)">{{ language }} </a></p>
-    </div>
-    <div class="repo-card">
+      <br>
       <p>Filter by API Used: </p>
       <p><a v-for="(repo, api) in apis" href="#" @click="filterByAPIUsed(api)">{{ api }} </a></p>
     </div>
@@ -83,8 +82,8 @@ for (let repo of reposJSON) {
   i++;
 }
 
-  languages.all.push(...repos);
-  apis.all.push(...repos);
+languages.all.push(...repos);
+apis.all.push(...repos);
 
 export default {
 
@@ -140,7 +139,7 @@ body {
   background: #fff;
   border-radius: 2px;
   display: inline-block;
-  height: 10rem;
+  height: 12rem;
   margin: 1rem;
   padding: 1rem;
   position: relative;
