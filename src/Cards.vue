@@ -1,5 +1,5 @@
 <template>
-  <div id="cards">
+  <div id="cards" class="forge-body">
     <div class="repo-card">
       <p>There are {{repos.length}} repos.</p>
       <p><br>Sort: </p>
@@ -135,7 +135,7 @@ body {
   background: #fff;
   border-radius: 2px;
   display: inline-block;
-  height: 12rem;
+  height: 10rem;
   margin: 1rem;
   padding: 1rem;
   position: relative;
