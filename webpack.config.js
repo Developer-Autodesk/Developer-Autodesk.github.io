@@ -27,14 +27,12 @@ module.exports = {
         test: /\.css$/, loader: 'style-loader!css-loader'
       },
       {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader"
+      },
+      {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-        loader: 'file',
-        query: {
-          outputStyle: 'expanded',
-          includePaths: [
-              path.resolve(process.cwd(), "node_modules")
-          ]
-        }
+        loader: 'file'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
@@ -49,12 +47,6 @@ module.exports = {
       }
     ]
   },
-  plugins:[
-    new ExtractTextPlugin({
-      filename: "dist/styles.css",
-      allChunks: true
-    })
-  ],
   devServer: {
     historyApiFallback: true,
     noInfo: true

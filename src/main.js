@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Cards from './Cards.vue';
-import './styles/main.css';
+import './styles/main.less';
 
 new Vue({
   el: '#cards',

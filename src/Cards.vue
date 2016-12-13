@@ -1,5 +1,5 @@
 <template>
-  <div id="cards">
+  <div id="cards" class="forge-body">
     <div class="repo-card">
       <p>There are {{repos.length}} repos.</p>
       <p><br>Sort: </p>
@@ -87,8 +87,8 @@ export default {
   data () {
     return {
       repos : repos,
-      languages : languages,
-      apis : apis
+      languages : languages, // used in filter by language
+      apis : apis // used in filter by api used
     }
   },
 
@@ -135,7 +135,7 @@ body {
   background: #fff;
   border-radius: 2px;
   display: inline-block;
-  height: 12rem;
+  height: 10rem;
   margin: 1rem;
   padding: 1rem;
   position: relative;
